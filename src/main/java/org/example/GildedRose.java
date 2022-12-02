@@ -3,7 +3,6 @@ package org.example;
 public class GildedRose {
     public Item[] items;
 
-    //e
     public GildedRose(Item[] items) {
         this.items = items;
     }
