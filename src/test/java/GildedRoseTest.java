@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class GildedRoseTest {
     private Item[] items;
     private GildedRose app;
+    private static final String AGED_BRIE = "Aged Brie";
 
     @Test
     void sellInShouldBeUpdatedEveryDay() {
@@ -64,7 +65,7 @@ public class GildedRoseTest {
     @Test
     void agedBrieGainsQualityEveryDay() {
         items = new Item[] {
-                new Item("Aged Brie", 30, 40)
+                new Item(AGED_BRIE, 30, 40)
         };
         app = new GildedRose(items);
         app.updateQuality();
@@ -74,7 +75,7 @@ public class GildedRoseTest {
     @Test
     void agedBrieQualityIsNeverAbove50() {
         items = new Item[] {
-                new Item("Aged Brie", 30, 50)
+                new Item(AGED_BRIE, 30, 50)
         };
         app = new GildedRose(items);
         app.updateQuality();
@@ -84,7 +85,7 @@ public class GildedRoseTest {
     @Test
     void agedBrieQualityGainsQualityTwiceFasterWhenSellInHasPassed() {
         items = new Item[] {
-                new Item("Aged Brie", -1, 48)
+                new Item(AGED_BRIE, -1, 48)
         };
         app = new GildedRose(items);
         app.updateQuality();
