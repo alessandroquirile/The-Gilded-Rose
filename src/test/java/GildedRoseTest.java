@@ -49,4 +49,46 @@ public class GildedRoseTest {
         app.updateQuality();
         assertEquals(0, items[0].quality);
     }
+
+    /*// Inutile siccome i regular item non migliorano mai
+    @Test
+    void regularItemsQualityShouldNotBeOver50() {
+        items = new Item[] {
+                new Item("", 30, 50)
+        };
+        app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(50, items[0].quality);
+    }*/
+
+    @Test
+    void agedBrieGainsQualityEveryDay() {
+        items = new Item[] {
+                new Item("Aged Brie", 30, 40)
+        };
+        app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(41, items[0].quality);
+    }
+
+    @Test
+    void agedBrieQualityIsNeverAbove50() {
+        items = new Item[] {
+                new Item("Aged Brie", 30, 50)
+        };
+        app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(50, items[0].quality);
+    }
+
+    @Test
+    void agedBrieQualityGainsQualityTwiceFasterWhenSellInHasPassed() {
+        items = new Item[] {
+                new Item("Aged Brie", -1, 48)
+        };
+        app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(50, items[0].quality);
+    }
+
 }
