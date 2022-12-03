@@ -8,6 +8,7 @@ public class GildedRoseTest {
     private Item[] items;
     private GildedRose app;
     private static final String AGED_BRIE = "Aged Brie";
+    private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 
     @Test
     void sellInShouldBeUpdatedEveryDay() {
@@ -63,7 +64,7 @@ public class GildedRoseTest {
     }*/
 
     @Test
-    void agedBrieGainsQualityEveryDay() {
+    void agedBrieShouldGainQualityEveryDay() {
         items = new Item[] {
                 new Item(AGED_BRIE, 30, 40)
         };
@@ -83,13 +84,24 @@ public class GildedRoseTest {
     }
 
     @Test
-    void agedBrieQualityGainsQualityTwiceFasterWhenSellInHasPassed() {
+    void agedBrieShouldGainQualityTwiceFasterWhenSellInHasPassed() {
         items = new Item[] {
                 new Item(AGED_BRIE, -1, 48)
         };
         app = new GildedRose(items);
         app.updateQuality();
         assertEquals(50, items[0].quality);
+    }
+
+    @Test
+    void sulfurasShouldBeALegendaryItem() {
+        items = new Item[] {
+                new Item(SULFURAS, 30, 80)
+        };
+        app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(30, items[0].sellIn);
+        assertEquals(80, items[0].quality);
     }
 
 }
