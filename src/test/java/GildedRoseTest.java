@@ -9,6 +9,7 @@ public class GildedRoseTest {
     private GildedRose app;
     private static final String AGED_BRIE = "Aged Brie";
     private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
+    private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
 
     @Test
     void sellInShouldBeUpdatedEveryDay() {
@@ -102,6 +103,46 @@ public class GildedRoseTest {
         app.updateQuality();
         assertEquals(30, items[0].sellIn);
         assertEquals(80, items[0].quality);
+    }
+
+    @Test
+    void backstagePassesShouldGain2QualityWhenSellInApproachesTo10() {
+        items = new Item[] {
+                new Item(BACKSTAGE_PASSES, 11, 30),
+                new Item(BACKSTAGE_PASSES, 10, 30),
+                new Item(BACKSTAGE_PASSES, 9, 30),
+                new Item(BACKSTAGE_PASSES, 6, 50)
+        };
+        app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(31, items[0].quality);
+        assertEquals(32, items[1].quality);
+        assertEquals(32, items[2].quality);
+        assertEquals(50, items[3].quality);
+    }
+
+    @Test
+    void backstagePassesShouldGain3QualityWhenSellInApproachesTo5() {
+        items = new Item[] {
+                new Item(BACKSTAGE_PASSES, 6, 30),
+                new Item(BACKSTAGE_PASSES, 5, 30),
+                new Item(BACKSTAGE_PASSES, 4, 50),
+        };
+        app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(32, items[0].quality);
+        assertEquals(33, items[1].quality);
+        assertEquals(50, items[2].quality);
+    }
+
+    @Test
+    void backstagePassesQualityShouldGoTo0AfterTheConcert() {
+        items = new Item[] {
+                new Item(BACKSTAGE_PASSES, 0, 30)
+        };
+        app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(0, items[0].quality);
     }
 
 }
