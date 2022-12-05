@@ -14,11 +14,15 @@ public class GildedRoseTest {
     @Test
     void sellInShouldBeUpdatedEveryDay() {
         items = new Item[] {
-                new Item("", 30, 10)
+                new Item("", 30, 10),
+                new Item("", 0, 10),
+                new Item("", -1, 10)
         };
         app = new GildedRose(items);
         app.updateQuality();
         assertEquals(29, items[0].sellIn);
+        assertEquals(-1, items[1].sellIn);
+        assertEquals(-2, items[2].sellIn);
     }
 
     @Test
@@ -39,8 +43,8 @@ public class GildedRoseTest {
         };
         app = new GildedRose(items);
         app.updateQuality();
-        for (Item item : items)
-            assertEquals(8, item.quality);
+        assertEquals(8, items[0].quality);
+        assertEquals(8, items[1].quality);
     }
 
     @Test
@@ -52,17 +56,6 @@ public class GildedRoseTest {
         app.updateQuality();
         assertEquals(0, items[0].quality);
     }
-
-    /*// Inutile siccome i regular item non migliorano mai
-    @Test
-    void regularItemsQualityShouldNotBeOver50() {
-        items = new Item[] {
-                new Item("", 30, 50)
-        };
-        app = new GildedRose(items);
-        app.updateQuality();
-        assertEquals(50, items[0].quality);
-    }*/
 
     @Test
     void agedBrieShouldGainQualityEveryDay() {
