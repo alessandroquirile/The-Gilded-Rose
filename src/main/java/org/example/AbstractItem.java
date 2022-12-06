@@ -10,5 +10,6 @@ public abstract class AbstractItem {
     }
 
     protected abstract void updateQuality();
+
     protected abstract void updateSellIn();
 }

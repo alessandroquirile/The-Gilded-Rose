@@ -1,9 +1,9 @@
 package org.example;
 
 public class GildedRose {
-    public Item[] items;
     private static final int MIN_QUALITY = 0;
     private static final int MAX_QUALITY = 50;
+    public Item[] items;
 
     public GildedRose(Item[] items) {
         this.items = items;
@@ -30,7 +30,7 @@ public class GildedRose {
     }
 
     private void updateRegularItemQuality(Item item) {
-        int decayRate = hasExpired(item)? 2 : 1;
+        int decayRate = hasExpired(item) ? 2 : 1;
         item.quality -= decayRate;
     }
 

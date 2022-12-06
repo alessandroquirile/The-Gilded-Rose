@@ -8,7 +8,7 @@ public class RegularItem extends AbstractItem {
 
     @Override
     protected void updateQuality() {
-        int decayRate = hasExpired(item)? 2 : 1;
+        int decayRate = hasExpired(item) ? 2 : 1;
         item.quality -= decayRate;
     }
 
@@ -18,6 +18,6 @@ public class RegularItem extends AbstractItem {
 
     @Override
     protected void updateSellIn() {
-        item.sellIn --;
+        item.sellIn--;
     }
 }

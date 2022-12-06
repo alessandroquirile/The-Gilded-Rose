@@ -14,6 +14,6 @@ public class Sulfuras extends AbstractItem {
 
     @Override
     protected void updateSellIn() {
-         // nothing to do
+        // nothing to do
     }
 }

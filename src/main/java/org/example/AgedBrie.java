@@ -17,7 +17,7 @@ public class AgedBrie extends AbstractItem {
 
     @Override
     protected void updateSellIn() {
-        item.sellIn --;
+        item.sellIn--;
     }
 
     private int getRate() {

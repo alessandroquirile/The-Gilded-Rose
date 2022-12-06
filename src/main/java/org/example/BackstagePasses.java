@@ -38,6 +38,6 @@ public class BackstagePasses extends AbstractItem {
 
     @Override
     protected void updateSellIn() {
-        item.sellIn --;
+        item.sellIn--;
     }
 }
