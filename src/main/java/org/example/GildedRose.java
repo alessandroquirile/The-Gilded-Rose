@@ -45,15 +45,14 @@ public class GildedRose {
 
     private void updateBackstagePassesQuality(Item item) {
         if (isUnder(item.quality, MAX_QUALITY)) {
-            int improvementRate = getImprovementRate(item);
             if (hasExpired(item))
                 item.quality = 0;
             else
-                item.quality += improvementRate;
+                item.quality += getImprovementRateBackstagePasses(item);
         }
     }
 
-    private int getImprovementRate(Item item) {
+    private int getImprovementRateBackstagePasses(Item item) {
         if (item.sellIn <= 5)
             return 3;
         else if (item.sellIn <= 10)
