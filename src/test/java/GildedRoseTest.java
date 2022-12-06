@@ -44,7 +44,7 @@ public class GildedRoseTest {
         app = new GildedRose(items);
         app.updateQuality();
         assertEquals(8, items[0].quality);
-        assertEquals(8, items[1].quality);
+        assertEquals(9, items[1].quality);
     }
 
     @Test
@@ -131,7 +131,7 @@ public class GildedRoseTest {
     @Test
     void backstagePassesQualityShouldGoTo0AfterTheConcert() {
         items = new Item[] {
-                new Item(BACKSTAGE_PASSES, 0, 30)
+                new Item(BACKSTAGE_PASSES, -1, 30)
         };
         app = new GildedRose(items);
         app.updateQuality();
