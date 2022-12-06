@@ -1,9 +1,9 @@
 package org.example;
 
 public class GildedRose {
+    public Item[] items;
     private static final int MIN_QUALITY = 0;
     private static final int MAX_QUALITY = 50;
-    public Item[] items;
 
     public GildedRose(Item[] items) {
         this.items = items;
@@ -13,7 +13,6 @@ public class GildedRose {
         for (Item item : items) {
             updateItemQuality(item);
             updateSellIn(item);
-            item.quality = Math.max(item.quality, MIN_QUALITY);
         }
     }
 
@@ -27,6 +26,7 @@ public class GildedRose {
         } else if (isSulfuras(item)) {
             // nothing to do
         }
+        item.quality = Math.max(item.quality, MIN_QUALITY);
     }
 
     private void updateRegularItemQuality(Item item) {
