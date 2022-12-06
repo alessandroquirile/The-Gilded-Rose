@@ -1,29 +1,20 @@
 package org.example;
 
-public class BackstagePasses extends AbstractItem {
+public class BackstagePasses extends TradableItem {
 
     public BackstagePasses(Item item) {
         super(item);
-        MAX_QUALITY = 50;
     }
 
     @Override
     protected void updateQuality() {
-        if (qualityBetween(MIN_QUALITY, MAX_QUALITY)) {
+        if (inValidRange(item.quality)) {
             int improvementRate = getRate();
             if (hasExpired())
                 item.quality = 0;
             else
                 item.quality += improvementRate;
         }
-    }
-
-    private boolean qualityBetween(int minQuality, int maxQuality) {
-        return item.quality > minQuality && item.quality < maxQuality;
-    }
-
-    private boolean hasExpired() {
-        return item.sellIn < 0;
     }
 
     private int getRate() {
@@ -34,10 +25,5 @@ public class BackstagePasses extends AbstractItem {
             return 2;
         else
             return 1;
-    }
-
-    @Override
-    protected void updateSellIn() {
-        item.sellIn--;
     }
 }
