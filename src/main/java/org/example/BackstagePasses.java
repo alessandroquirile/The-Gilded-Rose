@@ -8,7 +8,7 @@ public class BackstagePasses extends TradableItem {
 
     @Override
     protected void updateQuality() {
-        if (inValidRange(item.quality)) {
+        if (isValid(item.quality)) {
             int improvementRate = getRate();
             if (hasExpired())
                 item.quality = 0;

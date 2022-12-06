@@ -4,17 +4,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GildedRoseTest {
-    private TradableItem[] items;
-    private GildedRose app;
     private static final String REGULAR = "Regular";
     private static final String AGED_BRIE = "Aged Brie";
     private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
     private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
-
+    private TradableItem[] items;
+    private GildedRose app;
 
     @Test
     void sellInShouldBeUpdatedEveryDay() {
-        items = new TradableItem[] {
+        items = new TradableItem[]{
                 new RegularItem(new Item(REGULAR, 30, 10)),
                 new RegularItem(new Item(REGULAR, 0, 10)),
                 new RegularItem(new Item(REGULAR, -1, 10))
@@ -28,7 +27,7 @@ public class GildedRoseTest {
 
     @Test
     void regularItemsShouldDegradeQualityByOneEveryDay() {
-        items = new TradableItem[] {
+        items = new TradableItem[]{
                 new RegularItem(new Item(REGULAR, 30, 10))
         };
         app = new GildedRose(items);
@@ -38,7 +37,7 @@ public class GildedRoseTest {
 
     @Test
     void regularItemsShouldDegradeTwiceFasterWhenSellInHasPassed() {
-        items = new TradableItem[] {
+        items = new TradableItem[]{
                 new RegularItem(new Item(REGULAR, -1, 10)),
                 new RegularItem(new Item(REGULAR, 0, 10)),
         };
@@ -50,7 +49,7 @@ public class GildedRoseTest {
 
     @Test
     void regularItemsQualityShouldNotBeNegative() {
-        items = new TradableItem[] {
+        items = new TradableItem[]{
                 new RegularItem(new Item(REGULAR, 30, 0))
         };
         app = new GildedRose(items);
@@ -60,7 +59,7 @@ public class GildedRoseTest {
 
     @Test
     void agedBrieShouldGainQualityEveryDay() {
-        items = new TradableItem[] {
+        items = new TradableItem[]{
                 new AgedBrie(new Item(AGED_BRIE, 30, 40))
         };
         app = new GildedRose(items);
@@ -70,7 +69,7 @@ public class GildedRoseTest {
 
     @Test
     void agedBrieQualityIsNeverAbove50() {
-        items = new TradableItem[] {
+        items = new TradableItem[]{
                 new AgedBrie(new Item(AGED_BRIE, 30, 50))
         };
         app = new GildedRose(items);
@@ -80,7 +79,7 @@ public class GildedRoseTest {
 
     @Test
     void agedBrieShouldGainQualityTwiceFasterWhenSellInHasPassed() {
-        items = new TradableItem[] {
+        items = new TradableItem[]{
                 new AgedBrie(new Item(AGED_BRIE, -1, 48))
         };
         app = new GildedRose(items);
@@ -102,7 +101,7 @@ public class GildedRoseTest {
 
     @Test
     void backstagePassesShouldGain2QualityWhenSellInApproachesTo10() {
-        items = new TradableItem[] {
+        items = new TradableItem[]{
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 11, 30)),
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 10, 30)),
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 9, 30)),
@@ -118,7 +117,7 @@ public class GildedRoseTest {
 
     @Test
     void backstagePassesShouldGain3QualityWhenSellInApproachesTo5() {
-        items = new TradableItem[] {
+        items = new TradableItem[]{
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 6, 30)),
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 5, 30)),
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 4, 50))
@@ -132,7 +131,7 @@ public class GildedRoseTest {
 
     @Test
     void backstagePassesQualityShouldGoTo0AfterTheConcert() {
-        items = new TradableItem[] {
+        items = new TradableItem[]{
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, -1, 30))
         };
         app = new GildedRose(items);

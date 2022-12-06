@@ -8,7 +8,7 @@ public class AgedBrie extends TradableItem {
 
     @Override
     protected void updateQuality() {
-        if (inValidRange(item.quality)) {
+        if (isValid(item.quality)) {
             int improvementRate = hasExpired() ? 2 : 1;
             item.quality += improvementRate;
         }

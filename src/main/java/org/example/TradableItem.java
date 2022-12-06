@@ -10,7 +10,7 @@ public abstract class TradableItem extends AbstractItem {
 
     protected abstract void updateQuality();
 
-    protected final boolean inValidRange(int quality) {
+    protected final boolean isValid(int quality) {
         return quality > TradableItem.MIN_QUALITY && quality < TradableItem.MAX_QUALITY;
     }
 

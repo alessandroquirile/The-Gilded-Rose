@@ -8,7 +8,7 @@ public class RegularItem extends TradableItem {
 
     @Override
     protected void updateQuality() {
-        if (inValidRange(item.quality)) {
+        if (isValid(item.quality)) {
             int decayRate = hasExpired() ? 2 : 1;
             item.quality -= decayRate;
         }
