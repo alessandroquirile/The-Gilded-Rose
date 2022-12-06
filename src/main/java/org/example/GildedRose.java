@@ -45,21 +45,27 @@ public class GildedRose {
 
     private void updateBackstagePassesQuality(Item item) {
         if (isUnder(item.quality, MAX_QUALITY)) {
+            int improvementRate = getImprovementRate(item);
             if (hasExpired(item))
                 item.quality = 0;
-            else if (item.sellIn <= 5)
-                item.quality += 3;
-            else if (item.sellIn <= 10)
-                item.quality += 2;
             else
-                item.quality += 1;
+                item.quality += improvementRate;
         }
+    }
+
+    private int getImprovementRate(Item item) {
+        if (item.sellIn <= 5)
+            return 3;
+        else if (item.sellIn <= 10)
+            return 2;
+        else
+            return 1;
     }
 
     private void updateAgedBrieQuality(Item item) {
         if (isUnder(item.quality, MAX_QUALITY)) {
-            int decayRate = hasExpired(item) ? 2 : 1;
-            item.quality += decayRate;
+            int improvementRate = hasExpired(item) ? 2 : 1;
+            item.quality += improvementRate;
         }
     }
 
