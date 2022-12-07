@@ -36,7 +36,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    void regularItemsShouldDegradeTwiceFasterWhenSellInHasPassed() {
+    void regularItemsShouldDegradeTwiceFasterWhenExpired() {
         items = new AbstractItem[]{
                 new RegularItem(new Item(REGULAR, -1, 10)),
                 new RegularItem(new Item(REGULAR, 0, 10)),
@@ -48,13 +48,17 @@ public class GildedRoseTest {
     }
 
     @Test
-    void regularItemsQualityShouldNotBeNegative() {
+    void qualityShouldNotBeNegative() {
         items = new AbstractItem[]{
-                new RegularItem(new Item(REGULAR, 30, 0))
+                new RegularItem(new Item(REGULAR, 30, 0)),
+                new AgedBrie(new Item(AGED_BRIE, 30, 0)),
+                new BackstagePasses(new Item(BACKSTAGE_PASSES, 30, 0)),
         };
         app = new GildedRose(items);
         app.launch();
         assertEquals(0, items[0].item.quality);
+        assertEquals(0, items[1].item.quality);
+        assertEquals(0, items[2].item.quality);
     }
 
     @Test
@@ -78,7 +82,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    void agedBrieShouldGainQualityTwiceFasterWhenSellInHasPassed() {
+    void agedBrieShouldGainQualityTwiceFasterWhenExpired() {
         items = new AbstractItem[]{
                 new AgedBrie(new Item(AGED_BRIE, -1, 48))
         };
@@ -87,7 +91,6 @@ public class GildedRoseTest {
         assertEquals(50, items[0].item.quality);
     }
 
-    // Todo nella classe sulfuras:
     @Test
     void sulfurasShouldBeALegendaryItem() {
         items = new AbstractItem[]{
@@ -100,7 +103,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    void backstagePassesShouldGain2QualityWhenSellInApproachesTo10() {
+    void backstagePassesQualityShouldIncreaseBy2WhenSellInApproachesTo10() {
         items = new AbstractItem[]{
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 11, 30)),
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 10, 30)),
@@ -116,7 +119,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    void backstagePassesShouldGain3QualityWhenSellInApproachesTo5() {
+    void backstagePassesQualityShouldIncreaseBy3WhenSellInApproachesTo5() {
         items = new AbstractItem[]{
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 6, 30)),
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 5, 30)),
@@ -130,7 +133,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    void backstagePassesQualityShouldGoTo0AfterTheConcert() {
+    void backstagePassesQualityShouldBe0AfterTheConcert() {
         items = new AbstractItem[]{
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, -1, 30))
         };
