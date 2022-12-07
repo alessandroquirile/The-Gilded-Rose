@@ -9,17 +9,17 @@ public abstract class AbstractItem {
         this.item = item;
     }
 
-    protected abstract void updateQuality();
+    public abstract void updateQuality();
 
-    protected final boolean isValid(int quality) {
+    public final boolean isValid(int quality) {
         return quality > MIN_QUALITY && quality < MAX_QUALITY;
     }
 
-    protected void updateSellIn() {
+    public void updateSellIn() {
         item.sellIn--;
     }
 
-    protected final boolean hasExpired() {
+    public final boolean hasExpired() {
         return item.sellIn < 0;
     }
 }

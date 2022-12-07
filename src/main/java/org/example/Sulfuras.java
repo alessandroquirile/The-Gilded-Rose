@@ -9,12 +9,12 @@ public class Sulfuras extends AbstractItem {
     }
 
     @Override
-    protected void updateQuality() {
-        // nothing to do
+    public void updateQuality() {
+        // do nothing
     }
 
     @Override
-    protected void updateSellIn() {
-        // nothing to do
+    public void updateSellIn() {
+        // do nothing
     }
 }

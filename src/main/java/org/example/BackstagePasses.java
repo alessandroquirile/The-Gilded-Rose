@@ -7,7 +7,7 @@ public class BackstagePasses extends AbstractItem {
     }
 
     @Override
-    protected void updateQuality() {
+    public void updateQuality() {
         if (isValid(item.quality)) {
             if (hasExpired())
                 item.quality = 0;
