@@ -1,6 +1,6 @@
 package org.example;
 
-public class RegularItem extends TradableItem {
+public class RegularItem extends AbstractItem {
 
     public RegularItem(Item item) {
         super(item);

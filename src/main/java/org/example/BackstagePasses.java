@@ -1,6 +1,6 @@
 package org.example;
 
-public class BackstagePasses extends TradableItem {
+public class BackstagePasses extends AbstractItem {
 
     public BackstagePasses(Item item) {
         super(item);
@@ -9,11 +9,10 @@ public class BackstagePasses extends TradableItem {
     @Override
     protected void updateQuality() {
         if (isValid(item.quality)) {
-            int improvementRate = getRate();
             if (hasExpired())
                 item.quality = 0;
             else
-                item.quality += improvementRate;
+                item.quality += getRate();
         }
     }
 

@@ -1,14 +1,14 @@
 package org.example;
 
 public class GildedRose {
-    public TradableItem[] items;
+    public AbstractItem[] items;
 
-    public GildedRose(TradableItem[] items) {
+    public GildedRose(AbstractItem[] items) {
         this.items = items;
     }
 
     public void launch() {
-        for (TradableItem item : items) {
+        for (AbstractItem item : items) {
             item.updateQuality();
             item.updateSellIn();
         }

@@ -8,12 +8,12 @@ public class GildedRoseTest {
     private static final String AGED_BRIE = "Aged Brie";
     private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
     private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
-    private TradableItem[] items;
+    private AbstractItem[] items;
     private GildedRose app;
 
     @Test
     void sellInShouldBeUpdatedEveryDay() {
-        items = new TradableItem[]{
+        items = new AbstractItem[]{
                 new RegularItem(new Item(REGULAR, 30, 10)),
                 new RegularItem(new Item(REGULAR, 0, 10)),
                 new RegularItem(new Item(REGULAR, -1, 10))
@@ -27,7 +27,7 @@ public class GildedRoseTest {
 
     @Test
     void regularItemsShouldDegradeQualityByOneEveryDay() {
-        items = new TradableItem[]{
+        items = new AbstractItem[]{
                 new RegularItem(new Item(REGULAR, 30, 10))
         };
         app = new GildedRose(items);
@@ -37,7 +37,7 @@ public class GildedRoseTest {
 
     @Test
     void regularItemsShouldDegradeTwiceFasterWhenSellInHasPassed() {
-        items = new TradableItem[]{
+        items = new AbstractItem[]{
                 new RegularItem(new Item(REGULAR, -1, 10)),
                 new RegularItem(new Item(REGULAR, 0, 10)),
         };
@@ -49,7 +49,7 @@ public class GildedRoseTest {
 
     @Test
     void regularItemsQualityShouldNotBeNegative() {
-        items = new TradableItem[]{
+        items = new AbstractItem[]{
                 new RegularItem(new Item(REGULAR, 30, 0))
         };
         app = new GildedRose(items);
@@ -59,7 +59,7 @@ public class GildedRoseTest {
 
     @Test
     void agedBrieShouldGainQualityEveryDay() {
-        items = new TradableItem[]{
+        items = new AbstractItem[]{
                 new AgedBrie(new Item(AGED_BRIE, 30, 40))
         };
         app = new GildedRose(items);
@@ -69,7 +69,7 @@ public class GildedRoseTest {
 
     @Test
     void agedBrieQualityIsNeverAbove50() {
-        items = new TradableItem[]{
+        items = new AbstractItem[]{
                 new AgedBrie(new Item(AGED_BRIE, 30, 50))
         };
         app = new GildedRose(items);
@@ -79,7 +79,7 @@ public class GildedRoseTest {
 
     @Test
     void agedBrieShouldGainQualityTwiceFasterWhenSellInHasPassed() {
-        items = new TradableItem[]{
+        items = new AbstractItem[]{
                 new AgedBrie(new Item(AGED_BRIE, -1, 48))
         };
         app = new GildedRose(items);
@@ -88,20 +88,20 @@ public class GildedRoseTest {
     }
 
     // Todo nella classe sulfuras:
-    /*@Test
+    @Test
     void sulfurasShouldBeALegendaryItem() {
-        items = new AbstractItem[] {
+        items = new AbstractItem[]{
                 new Sulfuras(new Item(SULFURAS, 30, 80))
         };
         app = new GildedRose(items);
         app.launch();
-        assertEquals(30, items[0].sellIn);
-        assertEquals(80, items[0].quality);
-    }*/
+        assertEquals(30, items[0].item.sellIn);
+        assertEquals(80, items[0].item.quality);
+    }
 
     @Test
     void backstagePassesShouldGain2QualityWhenSellInApproachesTo10() {
-        items = new TradableItem[]{
+        items = new AbstractItem[]{
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 11, 30)),
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 10, 30)),
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 9, 30)),
@@ -117,7 +117,7 @@ public class GildedRoseTest {
 
     @Test
     void backstagePassesShouldGain3QualityWhenSellInApproachesTo5() {
-        items = new TradableItem[]{
+        items = new AbstractItem[]{
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 6, 30)),
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 5, 30)),
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 4, 50))
@@ -131,7 +131,7 @@ public class GildedRoseTest {
 
     @Test
     void backstagePassesQualityShouldGoTo0AfterTheConcert() {
-        items = new TradableItem[]{
+        items = new AbstractItem[]{
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, -1, 30))
         };
         app = new GildedRose(items);

@@ -8,4 +8,13 @@ public class Sulfuras extends AbstractItem {
         item.quality = MAX_QUALITY;
     }
 
+    @Override
+    protected void updateQuality() {
+        // nothing to do
+    }
+
+    @Override
+    protected void updateSellIn() {
+        // nothing to do
+    }
 }
