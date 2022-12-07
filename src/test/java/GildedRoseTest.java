@@ -12,7 +12,7 @@ public class GildedRoseTest {
     private GildedRose app;
 
     @Test
-    void sellInShouldBeUpdatedEveryDay() {
+    void sellInShouldBeUpdated() {
         items = new AbstractItem[]{
                 new RegularItem(new Item(REGULAR, 30, 10)),
                 new RegularItem(new Item(REGULAR, 0, 10)),
@@ -26,7 +26,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    void regularItemsShouldDegradeQualityByOneEveryDay() {
+    void regularItemsShouldDegradeQualityBy1() {
         items = new AbstractItem[]{
                 new RegularItem(new Item(REGULAR, 30, 10))
         };
@@ -36,7 +36,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    void regularItemsShouldDegradeTwiceFasterWhenExpired() {
+    void regularItemsShouldDegradeBy2WhenExpired() {
         items = new AbstractItem[]{
                 new RegularItem(new Item(REGULAR, -1, 10)),
                 new RegularItem(new Item(REGULAR, 0, 10)),
@@ -62,7 +62,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    void agedBrieShouldGainQualityEveryDay() {
+    void agedBrieQualityShouldRaiseBy1() {
         items = new AbstractItem[]{
                 new AgedBrie(new Item(AGED_BRIE, 30, 40))
         };
@@ -82,7 +82,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    void agedBrieShouldGainQualityTwiceFasterWhenExpired() {
+    void agedBrieQualityShouldRaiseBy2WhenExpired() {
         items = new AbstractItem[]{
                 new AgedBrie(new Item(AGED_BRIE, -1, 48))
         };
@@ -103,7 +103,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    void backstagePassesQualityShouldIncreaseBy2WhenSellInApproachesTo10() {
+    void backstagePassesQualityShouldRaiseBy2WhenSellInApproachesTo10() {
         items = new AbstractItem[]{
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 11, 30)),
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 10, 30)),
@@ -119,7 +119,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    void backstagePassesQualityShouldIncreaseBy3WhenSellInApproachesTo5() {
+    void backstagePassesQualityShouldRaiseBy3WhenSellInApproachesTo5() {
         items = new AbstractItem[]{
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 6, 30)),
                 new BackstagePasses(new Item(BACKSTAGE_PASSES, 5, 30)),
