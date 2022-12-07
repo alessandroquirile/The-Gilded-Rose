@@ -16,7 +16,8 @@ public class BackstagePasses extends AbstractItem {
         }
     }
 
-    private int getRate() {
+    @Override
+    public int getRate() {
         int daysToConcert = item.sellIn;
         if (daysToConcert <= 5)
             return 3;

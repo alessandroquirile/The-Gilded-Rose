@@ -22,4 +22,8 @@ public abstract class AbstractItem {
     public final boolean hasExpired() {
         return item.sellIn < 0;
     }
+
+    public int getRate() {
+        return hasExpired() ? 2 : 1;
+    }
 }

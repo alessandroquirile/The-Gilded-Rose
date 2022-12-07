@@ -9,7 +9,7 @@ public class RegularItem extends AbstractItem {
     @Override
     public void updateQuality() {
         if (isValid(item.quality)) {
-            int decayRate = hasExpired() ? 2 : 1;
+            int decayRate = getRate();
             item.quality -= decayRate;
         }
     }
