@@ -7,7 +7,7 @@ public class GildedRose {
         this.items = items;
     }
 
-    public void launch() {
+    public void updateState() {
         for (AbstractItem item : items) {
             item.updateQuality();
             item.updateSellIn();
