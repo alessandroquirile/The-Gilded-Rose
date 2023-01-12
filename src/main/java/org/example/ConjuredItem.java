@@ -7,7 +7,7 @@ public class ConjuredItem extends RegularItem {
     }
 
     @Override
-    public int getRate() {
-        return 2 * super.getRate();
+    public int getUpdateRate() {
+        return 2 * super.getUpdateRate();
     }
 }

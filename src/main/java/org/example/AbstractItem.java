@@ -11,19 +11,19 @@ public abstract class AbstractItem {
 
     public abstract void updateQuality();
 
-    public boolean isValid(int quality) {
-        return quality > MIN_QUALITY && quality < MAX_QUALITY;
-    }
-
     public void updateSellIn() {
         item.sellIn--;
+    }
+
+    public boolean isValid(int quality) {
+        return quality > MIN_QUALITY && quality < MAX_QUALITY;
     }
 
     public boolean hasExpired() {
         return item.sellIn < 0;
     }
 
-    public int getRate() {
+    public int getUpdateRate() {
         return hasExpired() ? 2 : 1;
     }
 }

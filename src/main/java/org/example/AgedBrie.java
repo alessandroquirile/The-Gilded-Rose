@@ -9,7 +9,7 @@ public class AgedBrie extends AbstractItem {
     @Override
     public void updateQuality() {
         if (isValid(item.quality)) {
-            int improvementRate = getRate();
+            int improvementRate = getUpdateRate();
             item.quality += improvementRate;
         }
     }

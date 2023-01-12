@@ -12,12 +12,12 @@ public class BackstagePasses extends AbstractItem {
             if (hasExpired())
                 item.quality = 0;
             else
-                item.quality += getRate();
+                item.quality += getUpdateRate();
         }
     }
 
     @Override
-    public int getRate() {
+    public int getUpdateRate() {
         int daysToConcert = item.sellIn;
         if (daysToConcert <= 5)
             return 3;
