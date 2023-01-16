@@ -1,4 +1,4 @@
-package org.example;
+package org.example.main;
 
 import org.example.factories.ItemUpdaterFactory;
 import org.example.interfaces.ItemUpdater;
