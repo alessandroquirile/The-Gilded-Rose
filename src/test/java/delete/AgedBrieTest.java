@@ -1,5 +1,7 @@
-import org.example.AgedBrie;
-import org.example.Item;
+package delete;
+
+import org.example.delete.AgedBrie;
+import org.example.models.Item;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

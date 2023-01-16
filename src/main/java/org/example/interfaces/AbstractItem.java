@@ -1,4 +1,6 @@
-package org.example;
+package org.example.interfaces;
+
+import org.example.models.Item;
 
 public abstract class AbstractItem {
     protected static final int MIN_QUALITY = 0;

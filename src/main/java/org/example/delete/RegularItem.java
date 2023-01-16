@@ -1,4 +1,7 @@
-package org.example;
+package org.example.delete;
+
+import org.example.models.Item;
+import org.example.interfaces.AbstractItem;
 
 public class RegularItem extends AbstractItem {
 

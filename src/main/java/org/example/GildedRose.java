@@ -1,16 +1,24 @@
 package org.example;
 
-public class GildedRose {
-    public AbstractItem[] items;
+import org.example.factories.ItemUpdaterFactory;
+import org.example.interfaces.ItemUpdater;
+import org.example.models.Item;
+import org.example.utils.ConfigFileReader;
 
-    public GildedRose(AbstractItem[] items) {
+public class GildedRose {
+    public Item[] items;
+
+    public GildedRose(Item[] items) {
         this.items = items;
     }
 
     public void updateState() {
-        for (AbstractItem item : items) {
-            item.updateQuality();
-            item.updateSellIn();
+        ItemUpdaterFactory factory = ItemUpdaterFactory.getInstance();
+        String strategy = ConfigFileReader.getProperty("update_strategy");
+        for (Item item : items) {
+            ItemUpdater updater = factory.getUpdater(item, strategy);
+            updater.updateQuality(item);
+            updater.updateSellIn(item);
         }
     }
 }

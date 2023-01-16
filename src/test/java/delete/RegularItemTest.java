@@ -1,5 +1,7 @@
-import org.example.Item;
-import org.example.RegularItem;
+package delete;
+
+import org.example.models.Item;
+import org.example.delete.RegularItem;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,5 +1,7 @@
-import org.example.Item;
-import org.example.Sulfuras;
+package delete;
+
+import org.example.models.Item;
+import org.example.delete.Sulfuras;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

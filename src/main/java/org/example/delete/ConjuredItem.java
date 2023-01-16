@@ -1,4 +1,6 @@
-package org.example;
+package org.example.delete;
+
+import org.example.models.Item;
 
 public class ConjuredItem extends RegularItem {
 

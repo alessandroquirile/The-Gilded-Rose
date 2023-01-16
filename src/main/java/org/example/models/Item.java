@@ -1,4 +1,4 @@
-package org.example;
+package org.example.models;
 
 /**
  * Do not alter the Item class or Items property as those belong to the

@@ -1,5 +1,7 @@
-import org.example.ConjuredItem;
-import org.example.Item;
+package delete;
+
+import org.example.delete.ConjuredItem;
+import org.example.models.Item;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

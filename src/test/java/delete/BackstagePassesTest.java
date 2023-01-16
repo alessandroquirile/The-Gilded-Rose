@@ -1,5 +1,7 @@
-import org.example.BackstagePasses;
-import org.example.Item;
+package delete;
+
+import org.example.delete.BackstagePasses;
+import org.example.models.Item;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
