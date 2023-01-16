@@ -1,18 +1,18 @@
 package interfaces;
 
-import org.example.utils.Constants;
-import org.example.models.Item;
 import org.example.factories.ItemUpdaterFactory;
 import org.example.interfaces.DailyUpdater;
+import org.example.models.Item;
+import org.example.utils.Constants;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DailyUpdaterTest {
+    private final String STRATEGY = "daily";
     private Item item;
     private ItemUpdaterFactory factory;
     private DailyUpdater updater;
-    private final String STRATEGY = "daily";
 
     @Test
     void sellInShouldDecreaseBy1EveryDay() {
@@ -40,7 +40,7 @@ class DailyUpdaterTest {
     }
 
     @Test
-    void itemShouldNotBeValidWhenQualityIsLessMoreThan50() {
+    void itemShouldNotBeValidWhenQualityIsMoreThan50() {
         item = new Item(Constants.AGED_BRIE.getLabel(), 10, 51);
         factory = ItemUpdaterFactory.getInstance();
         updater = (DailyUpdater) factory.getUpdater(item, STRATEGY);
@@ -49,7 +49,7 @@ class DailyUpdaterTest {
 
     @Test
     void itemShouldExpireWhenSellInIsNegative() {
-        item = new Item(Constants.AGED_BRIE.getLabel(), -1,  30);
+        item = new Item(Constants.AGED_BRIE.getLabel(), -1, 30);
         factory = ItemUpdaterFactory.getInstance();
         updater = (DailyUpdater) factory.getUpdater(item, STRATEGY);
         assertTrue(updater.hasExpired(item));

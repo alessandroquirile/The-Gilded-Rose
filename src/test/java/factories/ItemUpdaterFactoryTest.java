@@ -1,13 +1,13 @@
 package factories;
 
-import org.example.utils.Constants;
-import org.example.models.Item;
 import org.example.exceptions.StrategyNotSupportedYetException;
 import org.example.exceptions.UpdaterNotAvailableYetException;
 import org.example.factories.ItemUpdaterFactory;
 import org.example.implementations.*;
 import org.example.interfaces.DailyUpdater;
 import org.example.interfaces.ItemUpdater;
+import org.example.models.Item;
+import org.example.utils.Constants;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -42,7 +42,7 @@ public class ItemUpdaterFactoryTest {
     }
 
     @Test
-    void shouldThrowIllegalArgumentExceptionWhenUpdaterIsNotAvailable() {
+    void shouldThrowIllegalArgumentExceptionWhenItemHasNoUpdater() {
         factory = ItemUpdaterFactory.getInstance();
         item = new Item("Any other", 1, 2);
         assertThrows(

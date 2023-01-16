@@ -1,7 +1,7 @@
 package org.example.implementations;
 
-import org.example.models.Item;
 import org.example.interfaces.DailyUpdater;
+import org.example.models.Item;
 
 public class BackstagePassesUpdater extends DailyUpdater {
     public Item item;

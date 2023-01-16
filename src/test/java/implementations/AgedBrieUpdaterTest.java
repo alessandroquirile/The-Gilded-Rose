@@ -1,8 +1,8 @@
 package implementations;
 
-import org.example.utils.Constants;
-import org.example.models.Item;
 import org.example.implementations.AgedBrieUpdater;
+import org.example.models.Item;
+import org.example.utils.Constants;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

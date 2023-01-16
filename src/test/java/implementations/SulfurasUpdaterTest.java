@@ -1,8 +1,8 @@
 package implementations;
 
-import org.example.utils.Constants;
-import org.example.models.Item;
 import org.example.implementations.SulfurasUpdater;
+import org.example.models.Item;
+import org.example.utils.Constants;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,7 +13,7 @@ public class SulfurasUpdaterTest {
     private SulfurasUpdater updater;
 
     @Test
-    void qualityShouldAlwaysBe80() {
+    void qualityShouldBe80() {
         item = new Item(sulfuras, 30, 80);
         updater = new SulfurasUpdater(item);
         updater.updateQuality(item);

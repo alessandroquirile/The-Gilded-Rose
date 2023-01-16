@@ -1,7 +1,7 @@
 package org.example.implementations;
 
-import org.example.models.Item;
 import org.example.interfaces.DailyUpdater;
+import org.example.models.Item;
 
 public class SulfurasUpdater extends DailyUpdater {
     private static final int MAX_QUALITY = 80;
