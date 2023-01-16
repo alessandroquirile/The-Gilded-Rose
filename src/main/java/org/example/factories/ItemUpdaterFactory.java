@@ -35,17 +35,9 @@ public class ItemUpdaterFactory {
         else if (isSulfuras(item))
             return new SulfurasUpdater(item);
         throw new UpdaterNotAvailableYetException(item);
-        /*return switch (item.name) {
-            case "Aged Brie" -> new AgedBrieUpdater(item);
-            case "Backstage passes to a TAFKAL80ETC concert" -> new BackstagePassesUpdater(item);
-            case "Conjured" -> new ConjuredItemUpdater(item);
-            case "Regular" -> new RegularItemUpdater(item);
-            case "Sulfuras, Hand of Ragnaros" -> new SulfurasUpdater(item);
-            default -> throw new UpdaterNotAvailableYetException(item);
-        };*/
     }
 
-    private static boolean isDaily(String strategy) {
+    private boolean isDaily(String strategy) {
         return strategy.equals("daily");
     }
 }
