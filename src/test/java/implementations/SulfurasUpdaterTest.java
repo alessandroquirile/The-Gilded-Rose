@@ -2,13 +2,13 @@ package implementations;
 
 import org.example.implementations.SulfurasUpdater;
 import org.example.models.Item;
-import org.example.utils.Constants;
+import org.example.utils.InStock;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SulfurasUpdaterTest {
-    private final String sulfuras = Constants.SULFURAS.getFullName();
+    private final String sulfuras = InStock.SULFURAS.getFullName();
     private Item item;
     private SulfurasUpdater updater;
 

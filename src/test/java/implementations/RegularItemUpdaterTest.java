@@ -2,13 +2,13 @@ package implementations;
 
 import org.example.implementations.RegularItemUpdater;
 import org.example.models.Item;
-import org.example.utils.Constants;
+import org.example.utils.InStock;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RegularItemUpdaterTest {
-    private final String regular = Constants.REGULAR.getFullName();
+    private final String regular = InStock.REGULAR.getFullName();
     private Item item;
     private RegularItemUpdater updater;
 

@@ -2,13 +2,13 @@ package implementations;
 
 import org.example.implementations.BackstagePassesUpdater;
 import org.example.models.Item;
-import org.example.utils.Constants;
+import org.example.utils.InStock;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BackstagePassesUpdaterTest {
-    private final String backstagePasses = Constants.BACKSTAGE_PASSES.getFullName();
+    private final String backstagePasses = InStock.BACKSTAGE_PASSES.getFullName();
     private Item item;
     private BackstagePassesUpdater updater;
 

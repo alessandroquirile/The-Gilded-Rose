@@ -2,13 +2,13 @@ package implementations;
 
 import org.example.implementations.AgedBrieUpdater;
 import org.example.models.Item;
-import org.example.utils.Constants;
+import org.example.utils.InStock;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AgedBrieUpdaterTest {
-    private final String brie = Constants.AGED_BRIE.getFullName();
+    private final String brie = InStock.AGED_BRIE.getFullName();
     private Item item;
     private AgedBrieUpdater updater;
 

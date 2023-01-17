@@ -2,13 +2,13 @@ package implementations;
 
 import org.example.implementations.ConjuredItemUpdater;
 import org.example.models.Item;
-import org.example.utils.Constants;
+import org.example.utils.InStock;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ConjuredItemUpdaterTest {
-    private final String conjured = Constants.CONJURED.getFullName();
+    private final String conjured = InStock.CONJURED.getFullName();
     private Item item;
     private ConjuredItemUpdater updater;
 

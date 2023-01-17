@@ -7,18 +7,18 @@ import org.example.implementations.*;
 import org.example.interfaces.DailyUpdater;
 import org.example.interfaces.ItemUpdater;
 import org.example.models.Item;
-import org.example.utils.Constants;
+import org.example.utils.InStock;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ItemUpdaterFactoryTest {
     private final String STRATEGY = "daily";
-    private final String agedBrie = Constants.AGED_BRIE.getFullName();
-    private final String backstagePasses = Constants.BACKSTAGE_PASSES.getFullName();
-    private final String conjured = Constants.CONJURED.getFullName();
-    private final String regular = Constants.REGULAR.getFullName();
-    private final String sulfuras = Constants.SULFURAS.getFullName();
+    private final String agedBrie = InStock.AGED_BRIE.getFullName();
+    private final String backstagePasses = InStock.BACKSTAGE_PASSES.getFullName();
+    private final String conjured = InStock.CONJURED.getFullName();
+    private final String regular = InStock.REGULAR.getFullName();
+    private final String sulfuras = InStock.SULFURAS.getFullName();
     private Item item;
     private ItemUpdaterFactory factory;
     private ItemUpdater updater;
