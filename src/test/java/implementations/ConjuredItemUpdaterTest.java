@@ -51,5 +51,4 @@ public class ConjuredItemUpdaterTest {
         updater.updateQuality(item);
         assertEquals(50, updater.item.quality);
     }
-
 }

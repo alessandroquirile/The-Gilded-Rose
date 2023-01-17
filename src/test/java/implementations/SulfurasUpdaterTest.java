@@ -27,5 +27,4 @@ public class SulfurasUpdaterTest {
         updater.updateQuality(item);
         assertEquals(30, updater.item.sellIn);
     }
-
 }
