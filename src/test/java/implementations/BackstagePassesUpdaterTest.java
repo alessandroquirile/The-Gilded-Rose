@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BackstagePassesUpdaterTest {
-    private final String backstagePasses = Constants.BACKSTAGE_PASSES.getLabel();
+    private final String backstagePasses = Constants.BACKSTAGE_PASSES.getFullName();
     private Item item;
     private BackstagePassesUpdater updater;
 

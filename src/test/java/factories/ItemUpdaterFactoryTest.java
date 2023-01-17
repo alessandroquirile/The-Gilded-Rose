@@ -14,11 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ItemUpdaterFactoryTest {
     private final String STRATEGY = "daily";
-    private final String agedBrie = Constants.AGED_BRIE.getLabel();
-    private final String backstagePasses = Constants.BACKSTAGE_PASSES.getLabel();
-    private final String conjured = Constants.CONJURED.getLabel();
-    private final String regular = Constants.REGULAR.getLabel();
-    private final String sulfuras = Constants.SULFURAS.getLabel();
+    private final String agedBrie = Constants.AGED_BRIE.getFullName();
+    private final String backstagePasses = Constants.BACKSTAGE_PASSES.getFullName();
+    private final String conjured = Constants.CONJURED.getFullName();
+    private final String regular = Constants.REGULAR.getFullName();
+    private final String sulfuras = Constants.SULFURAS.getFullName();
     private Item item;
     private ItemUpdaterFactory factory;
     private ItemUpdater updater;

@@ -7,13 +7,13 @@ public enum Constants {
     REGULAR("Regular"),
     SULFURAS("Sulfuras, Hand of Ragnaros");
 
-    private final String label;
+    private final String fullName;
 
-    Constants(String label) {
-        this.label = label;
+    Constants(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getLabel() {
-        return label;
+    public String getFullName() {
+        return fullName;
     }
 }

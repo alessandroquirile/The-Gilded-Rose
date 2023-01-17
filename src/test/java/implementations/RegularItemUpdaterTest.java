@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RegularItemUpdaterTest {
-    private final String regular = Constants.REGULAR.getLabel();
+    private final String regular = Constants.REGULAR.getFullName();
     private Item item;
     private RegularItemUpdater updater;
 

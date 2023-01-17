@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ConjuredItemUpdaterTest {
-    private final String conjured = Constants.CONJURED.getLabel();
+    private final String conjured = Constants.CONJURED.getFullName();
     private Item item;
     private ConjuredItemUpdater updater;
 

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SulfurasUpdaterTest {
-    private final String sulfuras = Constants.SULFURAS.getLabel();
+    private final String sulfuras = Constants.SULFURAS.getFullName();
     private Item item;
     private SulfurasUpdater updater;
 

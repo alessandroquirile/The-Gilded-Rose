@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AgedBrieUpdaterTest {
-    private final String brie = Constants.AGED_BRIE.getLabel();
+    private final String brie = Constants.AGED_BRIE.getFullName();
     private Item item;
     private AgedBrieUpdater updater;
 

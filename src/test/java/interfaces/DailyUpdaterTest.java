@@ -16,7 +16,7 @@ class DailyUpdaterTest {
 
     @Test
     void sellInShouldDecreaseBy1EveryDay() {
-        item = new Item(Constants.AGED_BRIE.getLabel(), 10, 30);
+        item = new Item(Constants.AGED_BRIE.getFullName(), 10, 30);
         factory = ItemUpdaterFactory.getInstance();
         updater = (DailyUpdater) factory.getUpdater(item, DAILY);
         updater.updateSellIn(item);
@@ -25,7 +25,7 @@ class DailyUpdaterTest {
 
     @Test
     void itemShouldBeValidWhenQualityIsBetween0And50() {
-        item = new Item(Constants.AGED_BRIE.getLabel(), 10, 30);
+        item = new Item(Constants.AGED_BRIE.getFullName(), 10, 30);
         factory = ItemUpdaterFactory.getInstance();
         updater = (DailyUpdater) factory.getUpdater(item, DAILY);
         assertTrue(updater.isValid(item.quality));
@@ -33,7 +33,7 @@ class DailyUpdaterTest {
 
     @Test
     void itemShouldNotBeValidWhenQualityIsLessThan0() {
-        item = new Item(Constants.AGED_BRIE.getLabel(), 10, -1);
+        item = new Item(Constants.AGED_BRIE.getFullName(), 10, -1);
         factory = ItemUpdaterFactory.getInstance();
         updater = (DailyUpdater) factory.getUpdater(item, DAILY);
         assertFalse(updater.isValid(item.quality));
@@ -41,7 +41,7 @@ class DailyUpdaterTest {
 
     @Test
     void itemShouldNotBeValidWhenQualityIsMoreThan50() {
-        item = new Item(Constants.AGED_BRIE.getLabel(), 10, 51);
+        item = new Item(Constants.AGED_BRIE.getFullName(), 10, 51);
         factory = ItemUpdaterFactory.getInstance();
         updater = (DailyUpdater) factory.getUpdater(item, DAILY);
         assertFalse(updater.isValid(item.quality));
@@ -49,7 +49,7 @@ class DailyUpdaterTest {
 
     @Test
     void itemShouldExpireWhenSellInIsNegative() {
-        item = new Item(Constants.AGED_BRIE.getLabel(), -1, 30);
+        item = new Item(Constants.AGED_BRIE.getFullName(), -1, 30);
         factory = ItemUpdaterFactory.getInstance();
         updater = (DailyUpdater) factory.getUpdater(item, DAILY);
         assertTrue(updater.hasExpired(item));
@@ -57,7 +57,7 @@ class DailyUpdaterTest {
 
     @Test
     void itemShouldNotExpireWhenSellInIsZero() {
-        item = new Item(Constants.AGED_BRIE.getLabel(), 10, 0);
+        item = new Item(Constants.AGED_BRIE.getFullName(), 10, 0);
         factory = ItemUpdaterFactory.getInstance();
         updater = (DailyUpdater) factory.getUpdater(item, DAILY);
         assertFalse(updater.hasExpired(item));
@@ -65,7 +65,7 @@ class DailyUpdaterTest {
 
     @Test
     void itemShouldNotExpireWhenSellInIsPositive() {
-        item = new Item(Constants.AGED_BRIE.getLabel(), 10, 1);
+        item = new Item(Constants.AGED_BRIE.getFullName(), 10, 1);
         factory = ItemUpdaterFactory.getInstance();
         updater = (DailyUpdater) factory.getUpdater(item, DAILY);
         assertFalse(updater.hasExpired(item));
@@ -74,7 +74,7 @@ class DailyUpdaterTest {
 
     @Test
     void updateRateShouldBe2IfExpired() {
-        item = new Item(Constants.AGED_BRIE.getLabel(), -1, 30);
+        item = new Item(Constants.AGED_BRIE.getFullName(), -1, 30);
         factory = ItemUpdaterFactory.getInstance();
         updater = (DailyUpdater) factory.getUpdater(item, DAILY);
         assertEquals(2, updater.getUpdateRate(item));
@@ -82,7 +82,7 @@ class DailyUpdaterTest {
 
     @Test
     void updateRateShouldBe1IfNotExpired() {
-        item = new Item(Constants.AGED_BRIE.getLabel(), 1, 1);
+        item = new Item(Constants.AGED_BRIE.getFullName(), 1, 1);
         factory = ItemUpdaterFactory.getInstance();
         updater = (DailyUpdater) factory.getUpdater(item, DAILY);
         assertEquals(1, updater.getUpdateRate(item));
