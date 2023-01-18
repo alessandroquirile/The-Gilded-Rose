@@ -42,7 +42,6 @@ public class AgedBrieUpdaterTest {
         updater = new AgedBrieUpdater(item);
         updater.updateQuality(item);
         assertEquals(0, updater.item.quality);
-
     }
 
     @Test
