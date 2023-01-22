@@ -13,7 +13,7 @@ public class AgedBrieUpdaterTest {
     private AgedBrieUpdater updater;
 
     @Test
-    void qualityShouldRaiseBy1WhenSellInIsPositive() {
+    void qualityShouldIncreaseBy1WhenSellInIsPositive() {
         item = new Item(brie, 30, 40);
         updater = new AgedBrieUpdater(item);
         updater.updateQuality(item);
@@ -21,7 +21,7 @@ public class AgedBrieUpdaterTest {
     }
 
     @Test
-    void qualityShouldRaiseBy1WhenSellInIsZero() {
+    void qualityShouldIncreaseBy1WhenSellInIsZero() {
         item = new Item(brie, 0, 40);
         updater = new AgedBrieUpdater(item);
         updater.updateQuality(item);
@@ -29,7 +29,7 @@ public class AgedBrieUpdaterTest {
     }
 
     @Test
-    void qualityShouldRaiseBy2WhenSellIsIsNegative() {
+    void qualityShouldIncreaseBy2WhenSellIsIsNegative() {
         item = new Item(brie, -1, 40);
         updater = new AgedBrieUpdater(item);
         updater.updateQuality(item);

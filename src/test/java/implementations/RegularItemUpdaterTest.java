@@ -13,7 +13,7 @@ public class RegularItemUpdaterTest {
     private RegularItemUpdater updater;
 
     @Test
-    void qualityShouldDegradeBy1WhenSellInIsPositive() {
+    void qualityShouldDecreaseBy1WhenSellInIsPositive() {
         item = new Item(regular, 30, 40);
         updater = new RegularItemUpdater(item);
         updater.updateQuality(item);
@@ -21,7 +21,7 @@ public class RegularItemUpdaterTest {
     }
 
     @Test
-    void qualityShouldDegradeBy1WhenSellInIsZero() {
+    void qualityShouldDecreaseBy1WhenSellInIsZero() {
         item = new Item(regular, 0, 40);
         updater = new RegularItemUpdater(item);
         updater.updateQuality(item);
@@ -30,7 +30,7 @@ public class RegularItemUpdaterTest {
     }
 
     @Test
-    void qualityShouldDegradeBy2WhenSellInIsNegative() {
+    void qualityShouldDecreaseBy2WhenSellInIsNegative() {
         item = new Item(regular, -1, 40);
         updater = new RegularItemUpdater(item);
         updater.updateQuality(item);

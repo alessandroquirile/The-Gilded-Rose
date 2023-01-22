@@ -13,7 +13,7 @@ public class BackstagePassesUpdaterTest {
     private BackstagePassesUpdater updater;
 
     @Test
-    void qualityShouldRaiseBy1WhenSellInIsMoreThan10() {
+    void qualityShouldIncreaseBy1WhenSellInIsMoreThan10() {
         item = new Item(backstagePasses, 11, 30);
         updater = new BackstagePassesUpdater(item);
         updater.updateQuality(item);
@@ -21,7 +21,7 @@ public class BackstagePassesUpdaterTest {
     }
 
     @Test
-    void qualityShouldRaiseBy2WhenSellInIs10_orLess() {
+    void qualityShouldIncreaseBy2WhenSellInIs10_orLess() {
         item = new Item(backstagePasses, 10, 30);
         updater = new BackstagePassesUpdater(item);
         updater.updateQuality(item);
@@ -29,7 +29,7 @@ public class BackstagePassesUpdaterTest {
     }
 
     @Test
-    void qualityShouldRaiseBy3WhenSellInIs5_orLess() {
+    void qualityShouldIncreaseBy3WhenSellInIs5_orLess() {
         item = new Item(backstagePasses, 5, 30);
         updater = new BackstagePassesUpdater(item);
         updater.updateQuality(item);

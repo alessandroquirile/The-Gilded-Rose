@@ -13,7 +13,7 @@ public class ConjuredItemUpdaterTest {
     private ConjuredItemUpdater updater;
 
     @Test
-    void qualityShouldDegradeBy2WhenSellInIsPositive() {
+    void qualityShouldDecreaeBy2WhenSellInIsPositive() {
         item = new Item(conjured, 30, 40);
         updater = new ConjuredItemUpdater(item);
         updater.updateQuality(item);
@@ -21,7 +21,7 @@ public class ConjuredItemUpdaterTest {
     }
 
     @Test
-    void qualityShouldDegradeBy2WhenSellInIsZero() {
+    void qualityShouldDecreaseBy2WhenSellInIsZero() {
         item = new Item(conjured, 0, 40);
         updater = new ConjuredItemUpdater(item);
         updater.updateQuality(item);
@@ -29,7 +29,7 @@ public class ConjuredItemUpdaterTest {
     }
 
     @Test
-    void qualityShouldDegradeBy4WhenSellInIsNegative() {
+    void qualityShouldDecreaseBy4WhenSellInIsNegative() {
         item = new Item(conjured, -1, 40);
         updater = new ConjuredItemUpdater(item);
         updater.updateQuality(item);
