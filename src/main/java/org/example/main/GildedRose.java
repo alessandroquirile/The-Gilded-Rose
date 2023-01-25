@@ -5,14 +5,16 @@ import org.example.interfaces.ItemUpdater;
 import org.example.models.Item;
 import org.example.utils.ConfigFileReader;
 
-public class GildedRose {
-    public Item[] items;
+import java.util.List;
 
-    public GildedRose(Item[] items) {
+public class GildedRose {
+    public List<Item> items;
+
+    public GildedRose(List<Item> items) {
         this.items = items;
     }
 
-    public void updateState() {
+    public void updateState(List<Item> items) {
         ItemUpdaterFactory factory = ItemUpdaterFactory.getInstance();
         String strategy = ConfigFileReader.getProperty("update_strategy");
         for (Item item : items) {
@@ -21,4 +23,5 @@ public class GildedRose {
             updater.updateSellIn(item);
         }
     }
+
 }
