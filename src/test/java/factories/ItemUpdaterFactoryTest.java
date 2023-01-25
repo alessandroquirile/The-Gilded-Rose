@@ -26,7 +26,7 @@ public class ItemUpdaterFactoryTest {
     @Test
     void getProperUpdaterForDailyUpdate() {
         factory = ItemUpdaterFactory.getInstance();
-        item = new Item(agedBrie, 1, 2);
+        item = new Item(agedBrie, 0, 0);
         updater = factory.getUpdater(item, STRATEGY);
         assert (updater instanceof DailyUpdater);
     }
@@ -34,7 +34,7 @@ public class ItemUpdaterFactoryTest {
     @Test
     void shouldThrowTechnologyNotSupportedYetExceptionWhenStrategyIsNotDaily() {
         factory = ItemUpdaterFactory.getInstance();
-        item = new Item(agedBrie, 1, 2);
+        item = new Item(agedBrie, 0, 0);
         assertThrows(
                 StrategyNotSupportedYetException.class,
                 () -> factory.getUpdater(item, "Any other")
@@ -44,7 +44,7 @@ public class ItemUpdaterFactoryTest {
     @Test
     void shouldThrowIllegalArgumentExceptionWhenItemHasNoUpdater() {
         factory = ItemUpdaterFactory.getInstance();
-        item = new Item("Any other", 1, 2);
+        item = new Item("Any other", 0, 0);
         assertThrows(
                 UpdaterNotAvailableYetException.class,
                 () -> factory.getUpdater(item, STRATEGY)
