@@ -2,7 +2,7 @@ package org.example.utils;
 
 import org.example.models.Item;
 
-public abstract class ItemChecker {
+public abstract class ItemTypeChecker {
     public static boolean isSulfuras(Item item) {
         return InStock.SULFURAS.getFullName().equals(item.name);
     }

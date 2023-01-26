@@ -7,7 +7,7 @@ import org.example.interfaces.DailyUpdater;
 import org.example.interfaces.ItemUpdater;
 import org.example.models.Item;
 
-import static org.example.utils.ItemChecker.*;
+import static org.example.utils.ItemTypeChecker.*;
 
 public class ItemUpdaterFactory {
     private static ItemUpdaterFactory instance;
