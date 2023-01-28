@@ -9,19 +9,23 @@ import java.util.List;
 
 public class GildedRose {
     public List<Item> items;
+    private ItemUpdaterFactory factory;
+    private String strategy;
 
     public GildedRose(List<Item> items) {
         this.items = items;
     }
 
     public void updateState(List<Item> items) {
-        ItemUpdaterFactory factory = ItemUpdaterFactory.getInstance();
-        String strategy = ConfigFileReader.getProperty("update_strategy");
-        for (Item item : items) {
-            ItemUpdater updater = factory.getUpdater(item, strategy);
-            updater.updateQuality(item);
-            updater.updateSellIn(item);
-        }
+        factory = ItemUpdaterFactory.getInstance();
+        strategy = ConfigFileReader.getProperty("update_strategy");
+        for (Item item : items)
+            updateState(item);
     }
 
+    private void updateState(Item item) {
+        ItemUpdater updater = factory.getUpdater(item, strategy);
+        updater.updateQuality(item);
+        updater.updateSellIn(item);
+    }
 }
