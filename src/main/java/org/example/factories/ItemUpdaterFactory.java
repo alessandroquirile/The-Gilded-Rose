@@ -22,16 +22,6 @@ public class ItemUpdaterFactory {
         return instance;
     }
 
-    public ItemUpdater getUpdater(Item item, String strategy) {
-        if (!isDaily(strategy))
-            throw new StrategyNotSupportedYetException(strategy);
-        return getDailyUpdater(item);
-    }
-
-    private boolean isDaily(String strategy) {
-        return strategy.equals("daily");
-    }
-
     private static DailyUpdater getDailyUpdater(Item item) {
         if (isAgedBrie(item))
             return new AgedBrieUpdater(item);
@@ -44,5 +34,15 @@ public class ItemUpdaterFactory {
         else if (isSulfuras(item))
             return new SulfurasUpdater(item);
         throw new UpdaterNotAvailableYetException(item);
+    }
+
+    public ItemUpdater getUpdater(Item item, String strategy) {
+        if (!isDaily(strategy))
+            throw new StrategyNotSupportedYetException(strategy);
+        return getDailyUpdater(item);
+    }
+
+    private boolean isDaily(String strategy) {
+        return strategy.equals("daily");
     }
 }

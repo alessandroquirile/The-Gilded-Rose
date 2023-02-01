@@ -8,6 +8,7 @@ import org.example.interfaces.DailyUpdater;
 import org.example.interfaces.ItemUpdater;
 import org.example.models.Item;
 import org.example.utils.InStock;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -23,9 +24,13 @@ public class ItemUpdaterFactoryTest {
     private ItemUpdaterFactory factory;
     private ItemUpdater updater;
 
+    @BeforeEach
+    void init() {
+        factory = ItemUpdaterFactory.getInstance();
+    }
+
     @Test
     void getProperUpdaterForDailyUpdate() {
-        factory = ItemUpdaterFactory.getInstance();
         item = new Item(agedBrie, 0, 0);
         updater = factory.getUpdater(item, STRATEGY);
         assert (updater instanceof DailyUpdater);
@@ -33,7 +38,6 @@ public class ItemUpdaterFactoryTest {
 
     @Test
     void shouldThrowTechnologyNotSupportedYetExceptionWhenStrategyIsNotDaily() {
-        factory = ItemUpdaterFactory.getInstance();
         item = new Item(agedBrie, 0, 0);
         assertThrows(
                 StrategyNotSupportedYetException.class,
@@ -43,7 +47,6 @@ public class ItemUpdaterFactoryTest {
 
     @Test
     void shouldThrowIllegalArgumentExceptionWhenItemHasNoUpdater() {
-        factory = ItemUpdaterFactory.getInstance();
         item = new Item("Any other", 0, 0);
         assertThrows(
                 UpdaterNotAvailableYetException.class,
@@ -54,7 +57,6 @@ public class ItemUpdaterFactoryTest {
     @Test
     void getProperUpdaterForAgedBrie() {
         item = new Item(agedBrie, 0, 0);
-        factory = ItemUpdaterFactory.getInstance();
         updater = factory.getUpdater(item, STRATEGY);
         assert (updater instanceof AgedBrieUpdater);
     }
@@ -62,7 +64,6 @@ public class ItemUpdaterFactoryTest {
     @Test
     void getProperUpdaterForBackstagePasses() {
         item = new Item(backstagePasses, 0, 0);
-        factory = ItemUpdaterFactory.getInstance();
         updater = factory.getUpdater(item, STRATEGY);
         assert (updater instanceof BackstagePassesUpdater);
     }
@@ -70,7 +71,6 @@ public class ItemUpdaterFactoryTest {
     @Test
     void getProperUpdaterForConjuredItem() {
         item = new Item(conjured, 0, 0);
-        factory = ItemUpdaterFactory.getInstance();
         updater = factory.getUpdater(item, STRATEGY);
         assert (updater instanceof ConjuredItemUpdater);
     }
@@ -78,7 +78,6 @@ public class ItemUpdaterFactoryTest {
     @Test
     void getProperUpdaterForRegularItem() {
         item = new Item(regular, 0, 0);
-        factory = ItemUpdaterFactory.getInstance();
         updater = factory.getUpdater(item, STRATEGY);
         assert (updater instanceof RegularItemUpdater);
     }
@@ -86,7 +85,6 @@ public class ItemUpdaterFactoryTest {
     @Test
     void getProperUpdaterForSulfuras() {
         item = new Item(sulfuras, 0, 80);
-        factory = ItemUpdaterFactory.getInstance();
         updater = factory.getUpdater(item, STRATEGY);
         assert (updater instanceof SulfurasUpdater);
     }
